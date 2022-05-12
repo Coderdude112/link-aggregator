@@ -13,5 +13,28 @@ async function queryDatabase(query) {
   }
 }
 
+async function insertMeme (meme) {
+  try {
+    // make sure that any items are correctly URL encoded in the connection string
+    await sql.connect('Server=localhost,1433;Database=isadorameme;User Id=admin;Password=admin123;Encrypt=false')
+    const result = await sql.query("INSERT INTO Isadora_Meme VALUES('" + meme + "');")
+    //console.dir(result)
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getAllMemes() {
+  try {
+    // make sure that any items are correctly URL encoded in the connection string
+    await sql.connect('Server=localhost,1433;Database=isadorameme;User Id=admin;Password=admin123;Encrypt=false')
+    var meme = await sql.query("SELECT TOP 1 * FROM Isadora_Meme ORDER BY NEWID()")
+    //console.dir(meme)
+    return meme;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 /** Handles all exports */
 module.exports = { createArmedForce }
