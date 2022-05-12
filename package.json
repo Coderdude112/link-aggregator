@@ -1,0 +1,22 @@
+{
+    "name": "link-aggregator",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": { },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Coderdude112/link-aggregator.git"
+    },
+    "author": "Coderdude112",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Coderdude112/link-aggregator/issues"
+    },
+    "homepage": "https://github.com/Coderdude112/link-aggregator#readme",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "mssql": "^8.0.2"
+    }
+}
