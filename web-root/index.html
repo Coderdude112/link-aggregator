@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> <!-- Bulma CSS -->
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script> <!-- Iconify -->
+    <script src="./index.js"></script>
+    <title>Link Aggregator</title>
+</head>
+<body>
+    <section class="hero is-dark is-medium">
+        <div class="hero-body">
+            <h1 class="title is-1">LINK AGGREGATOR</h1>
+        </div>
+        <div class="hero-subtitle">
+            <p>A ripoff clone of Pocket</p>
+        </div>
+    </section>
+
+    <br>
+
+    <div class="tile is-ancestor" style="padding-left: 12px; padding-right: 12px;">
+        <div class="tile is-3 is-vertical is-parent"> <!-- Nav -->
+            <div class="tile is-child box">
+                <aside class="menu">
+                    <ul class="menu-list">
+                        <li><a onclick="viewTab('template')">Template</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="tile is-parent"> <!-- Content -->
+            <div class="tile is-child box" id="tabs-parent">
+                <div id="template" style="display: none;">
+                    <h1 class="title"></h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <footer class="footer has-text-centered" style="justify-content: flex-end;">
+        <div class="content">
+            <p>Made in Mr. Burr's <code>Database design and programming</code> class</p>
+            <p>This project is licenced under the <a href="https://choosealicense.com/licenses/mit/">MIT</a> licence</p>
+        </div>
+    </footer>
+</body>
+</html>
