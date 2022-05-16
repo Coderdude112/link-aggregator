@@ -15,9 +15,7 @@
             <h1 class="title is-1">LINK AGGREGATOR</h1>
             <p class="hero-subtitle">A ripoff clone of Pocket</p>
         </div>
-    </section>
-
-    <br>
+    </section><br>
 
     <div class="tile is-ancestor" style="padding-left: 12px; padding-right: 12px;">
         <div class="tile is-3 is-vertical is-parent"> <!-- Nav -->
@@ -34,10 +32,49 @@
                 <div id="template" style="display: none;">
                     <h1 class="title"></h1>
                 </div>
-                <div id="add-link" style="display: none">
+
+                <div id="add-category">
+                    <h1 class="title">Add Category
+                        <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
+                        <button class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
+                    </h1>
+                    <div class="field">
+                        <label class="label">Name</label>
+                        <div class="control">
+                            <div class="control has-icons-left">
+                                <input class="input" type="text" id="add-link-link-input">
+                                <span class="icon is-small is-left">
+                                    <span class="iconify" data-icon="ic:baseline-drive-file-rename-outline" style="color: black;"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Color</label>
+                        <div class="control">
+                            <div class="control has-icons-left">
+                                <input type="color" id="head" name="head" value="#e66465">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Select Icon <a href="https://icon-sets.iconify.design/" target="_blank">Here</a></label>
+                        <p>Enter in the name of the icon in the text box below. Example: ic:baseline-airplanemode-active</p>
+                        <div class="control">
+                            <div class="control has-icons-left">
+                                <input class="input" type="text" id="add-link-link-input">
+                                <span class="icon is-small is-left">
+                                    <span class="iconify" data-icon="ic:baseline-category" style="color: black;"></span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="add-link" style="display: none;">
                     <h1 class="title">Add Link
                         <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
-                        <butotn class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></butotn>
+                        <butotn class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
                     </h1>
                     <form>
                         <div class="field">
