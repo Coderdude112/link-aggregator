@@ -10,19 +10,38 @@
     <title>Link Aggregator</title>
 </head>
 <body>
-    <section class="hero is-dark has-text-centered">
+    <section class="hero is-dark has-text-centered" style="background-image: url('https://wallpaperaccess.com/full/1189379.png'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
         <div class="hero-body">
             <h1 class="title is-1">LINK AGGREGATOR</h1>
             <p class="hero-subtitle">A ripoff clone of Pocket</p>
         </div>
-    </section><br>
+        <div class="tabs is-centered is-boxed">
+            <ul>
+                <li class="is-active"><a>
+                    <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-add-box"></span></span>
+                    <span>Create Link</span>
+                </a></li>
+                <li><a>
+                    <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-create-new-folder"></span></span>
+                    <span>Create Category</span>
+                </a></li>
+                <li><a>
+                    <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-home"></span></span>
+                    <span>Home</span>
+                </a></li>
+            </ul>
+        </div>
+    </section>
+    
+    <br>
 
     <div class="tile is-ancestor" style="padding-left: 12px; padding-right: 12px;">
         <div class="tile is-3 is-vertical is-parent"> <!-- Nav -->
             <div class="tile is-child box">
                 <aside class="menu">
                     <ul class="menu-list">
-                        <li><a onclick="viewTab('template')">Template</a></li>
+                        <li><a onclick="viewTab('add-category')">Add Category</a></li>
+                        <li><a onclick="viewTab('add-link')">Add Link</a></li>
                     </ul>
                 </aside>
             </div>
@@ -33,7 +52,7 @@
                     <h1 class="title"></h1>
                 </div>
 
-                <div id="add-category">
+                <div id="add-category" style="display: none;">
                     <h1 class="title">Add Category
                         <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
                         <button class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
@@ -42,7 +61,7 @@
                         <label class="label">Name</label>
                         <div class="control">
                             <div class="control has-icons-left">
-                                <input class="input" type="text" id="add-link-link-input">
+                                <input class="input" type="text" id="add-category-link-input">
                                 <span class="icon is-small is-left">
                                     <span class="iconify" data-icon="ic:baseline-drive-file-rename-outline" style="color: black;"></span>
                                 </span>
@@ -53,16 +72,16 @@
                         <label class="label">Color</label>
                         <div class="control">
                             <div class="control has-icons-left">
-                                <input type="color" id="head" name="head" value="#e66465">
+                                <input type="color" id="add-category-color-input" name="head" value="#e66465">
                             </div>
                         </div>
                     </div>
                     <div class="field">
-                        <label class="label">Select Icon <a href="https://icon-sets.iconify.design/" target="_blank">Here</a></label>
-                        <p>Enter in the name of the icon in the text box below. Example: ic:baseline-airplanemode-active</p>
+                        <label class="label">Icon</label>
                         <div class="control">
                             <div class="control has-icons-left">
-                                <input class="input" type="text" id="add-link-link-input">
+                                <input class="input" type="text" id="add-category-icon-input">
+                                <p>Enter in the name of the icon from the <a href="https://icon-sets.iconify.design/" target="_blank">Iconify icons DB</a> in the text box below. Ex: <code>ic:baseline-airplanemode-active</code></p>
                                 <span class="icon is-small is-left">
                                     <span class="iconify" data-icon="ic:baseline-category" style="color: black;"></span>
                                 </span>
@@ -70,11 +89,10 @@
                         </div>
                     </div>
                 </div>
-
                 <div id="add-link" style="display: none;">
                     <h1 class="title">Add Link
                         <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
-                        <butotn class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
+                        <button class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
                     </h1>
                     <form>
                         <div class="field">
@@ -147,7 +165,7 @@
     <footer class="footer has-text-centered" style="justify-content: flex-end;">
         <div class="content">
             <p>Made in Mr. Burr's <code>Database design and programming</code> class</p>
-            <p>This project is licenced under the <a href="https://choosealicense.com/licenses/mit/">MIT</a> licence</p>
+            <p>This project is licensed under the <a href="https://choosealicense.com/licenses/mit/">MIT</a> licence</p>
         </div>
     </footer>
 </body>
