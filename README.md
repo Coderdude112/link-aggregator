@@ -6,12 +6,12 @@ Simply, this project is a ripoff [Pocket](https://getpocket.com) clone. Basicall
 
 ## Roadmap / TO DO
 
-* [ ] Add [JSDoc](https://jsdoc.app) documentation to methods
+* [x] Add [JSDoc](https://jsdoc.app) documentation to methods
 * [ ] Move frontend nav to top tabs instead of side bar
 * [ ] Write frontend display page
 * [ ] Link the frontend to the backend
-  * [ ] createLink
-  * [ ] createCategory
+  * [x] createLink
+  * [x] createCategory
   * [ ] sendImage
   * [ ] getLinks
   * [ ] getCategories
