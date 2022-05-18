@@ -26,8 +26,8 @@ CREATE TABLE links( -- All ratings
   link VARCHAR(512),
   website_name VARCHAR(104)
   title VARCHAR(104),
-  image_filename VARCHAR(256),
   category INT,
+  image_filename VARCHAR(256),
   PRIMARY KEY(id),
   FOREIGN KEY(category) REFERENCES categories(id),
 );
