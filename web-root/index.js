@@ -60,11 +60,22 @@ function getValueThenWipe(id) {
 /* Links */
 // ----- //
 
-function addLink() {
-    const link = getValueThenWipe() // The link we are saving (Omit "http://" and "https://")
-    const websiteName = getValueThenWipe() // The name of the website where the link is hosted
-    const pageTitle = getValueThenWipe() // The title of the page
-    const img = getValueThenWipe() // An image that will accompany the link on the homepage // @TODO: Use multr
+/** Creates a new link using the data the user entered on the "create-link" tab */
+function createLink() {
+    const link = getValueThenWipe("add-link-link-input") // The link we are saving (Omit "http://" and "https://")
+    const websiteName = getValueThenWipe("add-link-website-name-input") // The name of the website where the link is hosted
+    const pageTitle = getValueThenWipe("add-link-page-title-input") // The title of the page
+    const category = getValueThenWipe("add-link-category-select")
+    const imageFilename = getValueThenWipe() // An image that will accompany the link on the homepage // @TODO: Use multr
 
-    interneReq("POST", "http://localhost:3000?link=" + link + "&nameOfWebsite=" + websiteName + "&pageTitle=" + pageTitle)
+    interneReq("POST", "http://localhost:3000/OPS/createLink?link=" + link + "&websiteName=" + websiteName + "&pageTitle=" + pageTitle + "&category=" + category + "&imageFilename=" + imageFilename)
+}
+
+/** Creates a new category using the data the user entered on the "create-category" tab */
+function createCategory() {
+    const name = getValueThenWipe()
+    const color = document.getElementById().value // The HTML color code for the category (Omit the hashtag from the front of the color code)
+    const icon = getValueThenWipe() // The icon of the category, provided by iconify
+
+    interneReq("POST", "http://localhost:3000/OPS/createCategory?name=" + name + "&color=" + color + "&icon=" + icon)
 }
