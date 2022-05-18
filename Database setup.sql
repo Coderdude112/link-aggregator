@@ -25,11 +25,15 @@ CREATE TABLE links( -- All ratings
   id INT IDENTITY(1,1),
   link VARCHAR(300),
   title VARCHAR(100),
-  filename VARCHAR(300),
+  image_filename VARCHAR(300),
   category INT,
   PRIMARY KEY(id),
   FOREIGN KEY(category) REFERENCES categories(id),
 );
+
+-- ----------------------- --
+-- Insert data for testing --
+-- ----------------------- --
 
 INSERT INTO categories VALUES('Homepage', 'FF6666', 'ic:baseline-10k');
 INSERT INTO categories VALUES('Creative', '66FF66', 'ic:twotone-vpn-lock');
@@ -45,6 +49,3 @@ INSERT INTO links VALUES('github.com/', 'GitHub', 'GitHub', 3);
 
 SELECT * FROM categories;
 SELECT * FROM links;
-
---DROP TABLE links;
---DROP TABLE categories;
