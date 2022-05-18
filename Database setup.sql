@@ -15,17 +15,18 @@ CREATE DATABASE linkaggregator;
 -- Tables
 CREATE TABLE categories( -- All categories
   id INT IDENTITY(1,1),
-  name VARCHAR(100),
+  name VARCHAR(104),
   color VARCHAR(6),
-  icon VARCHAR(100),
+  icon VARCHAR(32),
   PRIMARY KEY(id)
 );
 
 CREATE TABLE links( -- All ratings
   id INT IDENTITY(1,1),
-  link VARCHAR(300),
-  title VARCHAR(100),
-  image_filename VARCHAR(300),
+  link VARCHAR(512),
+  website_name VARCHAR(104)
+  title VARCHAR(104),
+  image_filename VARCHAR(256),
   category INT,
   PRIMARY KEY(id),
   FOREIGN KEY(category) REFERENCES categories(id),
