@@ -26,8 +26,8 @@
                     <span>Create Category</span>
                 </a></li>
                 <li><a>
-                    <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-home"></span></span>
-                    <span>Home</span>
+                    <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-insert-link"></span></span>
+                    <span>Links</span>
                 </a></li>
             </ul>
         </div>
@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="tile is-parent"> <!-- Content -->
-            <div class="tile is-child box" id="tabs-parent">
+            <div class="tile is-child box" id="tabs-parent" style="background-color: #e66465;">
                 <div id="template" style="display: none;">
                     <h1 class="title"></h1>
                 </div>
@@ -89,72 +89,21 @@
                         </div>
                     </div>
                 </div>
-                <div id="add-link" style="display: none;">
-                    <h1 class="title">Add Link
-                        <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
-                        <button class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
-                    </h1>
-                    <form>
-                        <div class="field">
-                            <label class="label">Link</label>
-                            <div class="control">
-                                <div class="control has-icons-left">
-                                    <input class="input" type="text" id="add-link-link-input">
-                                    <span class="icon is-small is-left">
-                                        <span class="iconify" data-icon="ic:baseline-add-link" style="color: black;"></span>
-                                    </span>
-                                </div>
-                            </div>
+                <div id="add-link" >
+                    <h1 class="title" style="color: white;">Links</h1>
+                    <div class="tile is-ancestor">
+                        <div class="tile is-parent">
+                            <article class="tile is-child notification is-info is-3" style="color: black; background-color:white;" onclick="showModal()">
+                                <p class="title">Name of Website</p>
+                                <p class="subtitle">Title of Page</p>
+                                <figure class="image is-3by3">
+                                    <a href="example.com" target="blank">
+                                        <img src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU" alt="Tile Picture">
+                                    </a>
+                                </figure>
+                            </article>
                         </div>
-                        <div class="field">
-                            <label class="label">Website Name</label>
-                            <div class="control">
-                                <p class="control has-icons-left">
-                                    <input class="input" type="text" id="add-link-website-name-input">
-                                    <span class="icon is-small is-left">
-                                        <span class="iconify" data-icon="ic:baseline-web-asset" style="color: black;"></span>
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Page Title</label>
-                            <div class="control">
-                                <p class="control has-icons-left">
-                                    <input class="input" type="text" id="add-link-page-title-input">
-                                    <span class="icon is-small is-left">
-                                        <span class="iconify" data-icon="ic:baseline-drive-file-rename-outline" style="color: black;"></span>
-                                    </span>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Category</label>
-                            <div class="control has-icons-left">
-                                <div class="select is-fullwidth">
-                                    <select id="add-link-cateogry-select"></select>
-                                </div>
-                                <span class="icon is-small is-left">
-                                    <span class="iconify" data-icon="ic:baseline-category" style="color: black;"></span>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label class="label">Image</label>
-                            <div class="control">
-                                <div class="file has-name is-fullwidth">
-                                    <label class="file-label">
-                                        <input class="file-input" type="file" name="resume">
-                                        <span class="file-cta">
-                                            <span class="file-icon"><span class="iconify" data-icon="ic:baseline-file-upload"></span></span>
-                                            <span class="file-label">Upload an image…</span>
-                                        </span>
-                                        <span class="file-name">Nothing uploaded yet!</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -164,7 +113,7 @@
 
     <footer class="footer has-text-centered" style="justify-content: flex-end;">
         <div class="content">
-            <p>Made in Mr. Burr's <code>Database design and programming</code> class</p>
+            <p>Made in Mr. Burr's <code>Database Design and Programming</code> class</p>
             <p>This project is licensed under the <a href="https://choosealicense.com/licenses/mit/">MIT</a> licence</p>
         </div>
     </footer>
