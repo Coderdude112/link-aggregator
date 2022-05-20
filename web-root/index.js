@@ -74,16 +74,31 @@ function createLink() {
     const websiteName = getValueThenWipe("add-link-website-name-input") // The name of the website where the link is hosted
     const pageTitle = getValueThenWipe("add-link-page-title-input") // The title of the page
     const category = getValueThenWipe("add-link-category-select")
-    const imageFilename = getValueThenWipe() // An image that will accompany the link on the homepage // @TODO: Use multr
+    const imageFilename = getValueThenWipe("add-link-image-upload-button") // An image that will accompany the link on the homepage // @TODO: Use multr
 
     interneReq("POST", "http://localhost:3000/OPS/createLink?link=" + link + "&websiteName=" + websiteName + "&pageTitle=" + pageTitle + "&category=" + category + "&imageFilename=" + imageFilename)
 }
 
 /** Creates a new category using the data the user entered on the "create-category" tab */
 function createCategory() {
-    const name = getValueThenWipe()
-    const color = document.getElementById().value // The HTML color code for the category (Omit the hashtag from the front of the color code)
-    const icon = getValueThenWipe() // The icon of the category, provided by iconify
+    const name = getValueThenWipe("add-category-link-input")
+    var string = document.getElementById("add-category-color-input").value // The HTML color code for the category (Omit the hashtag from the front of the color code)
+    color = string.substring(1, 7)
+    const icon = getValueThenWipe("add-category-icon-input") // The icon of the category, provided by iconify
 
     interneReq("POST", "http://localhost:3000/OPS/createCategory?name=" + name + "&color=" + color + "&icon=" + icon)
+}
+
+function clearCategory(){
+    const name = getValueThenWipe("add-category-link-input")
+    const color = getValueThenWipe("add-category-color-input")
+    const icon = getValueThenWipe("add-category-icon-input")
+}
+
+function clearLink(){
+    const link = getValueThenWipe("add-link-link-input") // The link we are saving (Omit "http://" and "https://")
+    const websiteName = getValueThenWipe("add-link-website-name-input") // The name of the website where the link is hosted
+    const pageTitle = getValueThenWipe("add-link-page-title-input") // The title of the page
+    const category = getValueThenWipe("add-link-category-select")
+    const imageFilename = getValueThenWipe("add-link-image-upload-button") 
 }
