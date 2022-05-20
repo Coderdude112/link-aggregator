@@ -75,11 +75,13 @@ function getValueThenWipe(id) {
 
 /** Creates a new category using the data the user entered on the "create-category" tab */
 function createCategory() {
-    const name = getValueThenWipe()
-    const color = document.getElementById().value // The HTML color code for the category (Omit the hashtag from the front of the color code)
-    const icon = getValueThenWipe() // The icon of the category, provided by iconify
+    const name = getValueThenWipe("add-category-link-input")
+    var string = document.getElementById("add-category-color-input").value // The HTML color code for the category (Omit the hashtag from the front of the color code)
+    color = string.substring(1, 7)
+    const icon = getValueThenWipe("add-category-icon-input") // The icon of the category, provided by iconify
 
     interneReq("POST", "http://localhost:3000/OPS/createCategory?name=" + name + "&color=" + color + "&icon=" + icon)
+    fillCategoryDropdowns()
 }
 
 /** Creates a new link using the data the user entered on the "create-link" tab */
