@@ -40,9 +40,9 @@ INSERT INTO categories VALUES('Homepage', 'FF6666', 'ic:baseline-10k');
 INSERT INTO categories VALUES('Creative', '66FF66', 'ic:twotone-vpn-lock');
 INSERT INTO categories VALUES('Go Outside', 'FF99FF', 'ic:twotone-wb-sunny');
 
-INSERT INTO links VALUES('www.lingscars.com/', 'The UK''s craziest car leasing website!', 'LingsCars', "404.png", 1);
-INSERT INTO links VALUES('www.tesla.com/', 'Electric Cars, Solar & Clean Energy', 'Tesla', "404.png", 2);
-INSERT INTO links VALUES('github.com/', 'GitHub', 'GitHub', "404.png", 3);
+INSERT INTO links VALUES('www.lingscars.com/', 'The UK''s craziest car leasing website!', 'LingsCars', '404.png', 1);
+INSERT INTO links VALUES('www.tesla.com/', 'Electric Cars, Solar & Clean Energy', 'Tesla', '404.png', 2);
+INSERT INTO links VALUES('github.com/', 'GitHub', 'GitHub', '404.png', 3);
 
 -- ------------------ --
 -- Print out the info --
