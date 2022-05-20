@@ -46,12 +46,12 @@ app.post("/OPS/createCategory", (req, res) => {
 
 app.post("/OPS/sendImage", (req, res) => { res.sendStatus(418) })
 
-app.get("/OPS/getLinks", (req, res) => {
+app.get("/OPS/getLinks", async (req, res) => {
     var getLink = await dbo.getLinks();
     res.status(200).send(getLink);
 })
 
-app.get("/OPS/getCategories", (req, res) => { 
+app.get("/OPS/getCategories", async (req, res) => { 
     var getCategory = await dbo.getCategories();
     res.status(200).send(getCategory);
 })
