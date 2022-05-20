@@ -8,6 +8,11 @@
 /* Core */
 // ---- //
 
+/** Handles all actions that need to be done to setup the page */
+function setupPage() {
+    fillCategoryDropdowns()
+}
+
 /** Toggles to a new tab
  * @param {string} tab
  */
@@ -55,7 +60,7 @@ function interneReq(send_method, URL, callback = function() { }) {
     xhr.send()
 }
 
-/** Gets an elemement by ID then wipes the element
+/** Gets an element by ID then wipes the element
  * @param {string} id
  */
 function getValueThenWipe(id) {
@@ -64,9 +69,18 @@ function getValueThenWipe(id) {
     return value
 }
 
-// ----- //
-/* Links */
-// ----- //
+// -------- //
+/* Creators */
+// -------- //
+
+/** Creates a new category using the data the user entered on the "create-category" tab */
+function createCategory() {
+    const name = getValueThenWipe()
+    const color = document.getElementById().value // The HTML color code for the category (Omit the hashtag from the front of the color code)
+    const icon = getValueThenWipe() // The icon of the category, provided by iconify
+
+    interneReq("POST", "http://localhost:3000/OPS/createCategory?name=" + name + "&color=" + color + "&icon=" + icon)
+}
 
 /** Creates a new link using the data the user entered on the "create-link" tab */
 function createLink() {
@@ -79,26 +93,38 @@ function createLink() {
     interneReq("POST", "http://localhost:3000/OPS/createLink?link=" + link + "&websiteName=" + websiteName + "&pageTitle=" + pageTitle + "&category=" + category + "&imageFilename=" + imageFilename)
 }
 
-/** Creates a new category using the data the user entered on the "create-category" tab */
-function createCategory() {
-    const name = getValueThenWipe("add-category-link-input")
-    var string = document.getElementById("add-category-color-input").value // The HTML color code for the category (Omit the hashtag from the front of the color code)
-    color = string.substring(1, 7)
-    const icon = getValueThenWipe("add-category-icon-input") // The icon of the category, provided by iconify
+// -------- //
+/* Clearers */
+// -------- //
 
-    interneReq("POST", "http://localhost:3000/OPS/createCategory?name=" + name + "&color=" + color + "&icon=" + icon)
-}
-
+/** Clears all the entry fields  */
 function clearCategory(){
-    const name = getValueThenWipe("add-category-link-input")
-    const color = getValueThenWipe("add-category-color-input")
-    const icon = getValueThenWipe("add-category-icon-input")
+    document.getElementById("add-category-link-input").value = ""
+    document.getElementById("add-category-color-input").value = ""
+    document.getElementById("add-category-icon-input").value = ""
 }
 
 function clearLink(){
-    const link = getValueThenWipe("add-link-link-input") // The link we are saving (Omit "http://" and "https://")
-    const websiteName = getValueThenWipe("add-link-website-name-input") // The name of the website where the link is hosted
-    const pageTitle = getValueThenWipe("add-link-page-title-input") // The title of the page
-    const category = getValueThenWipe("add-link-category-select")
-    const imageFilename = getValueThenWipe("add-link-image-upload-button") 
+    document.getElementById("add-link-link-input").value = ""
+    document.getElementById("add-link-website-name-input").value = ""
+    document.getElementById("add-link-page-title-input").value = ""
+    document.getElementById("add-link-category-select").value = 0
+    document.getElementById("add-link-image-upload-button").value = ""
+}
+
+// ---- //
+
+function fillCategoryDropdowns() {
+    interneReq("GET", "http://localhost:3000/OPS/getCategories", (res) => {
+        if (res.target.readyState === 4 && res.target.status === 200) {
+            const resJSON = JSON.parse(res.target.response)
+            let dropdownHTML = ""
+
+            for (let i in resJSON.recordset) {
+                dropdownHTML += "<option value=\"" + i + "\">" + resJSON.recordset[i].name + "</option>"
+            }
+
+            document.getElementById("add-link-category-select").innerHTML = dropdownHTML
+        }
+    })
 }
