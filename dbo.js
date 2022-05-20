@@ -14,11 +14,11 @@ async function queryDatabase(query) {
 }
 
 async function createCategory(name, color, icon) {
-  return queryDatabase("INSERT INTO categories '" + name + "', '" + color + "', '" + icon + "',")
+  return queryDatabase("INSERT INTO categories VALUES('" + name + "', '" + color + "', '" + icon + "')")
 }
 
 async function createLink(link, title, filename, category) {
-  return queryDatabase("INSERT INTO links '" + link + "', '" + title + "', '" + filename + "', '" + category + "',")
+  return queryDatabase("INSERT INTO links VALUES('" + link + "', '" + title + "', '" + filename + "', '" + category + "')")
 }
 
 async function getCategories() {
