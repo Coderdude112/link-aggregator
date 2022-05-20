@@ -13,13 +13,13 @@ Simply, this project is a ripoff [Pocket](https://getpocket.com) clone. Basicall
   * [x] createLink
   * [x] createCategory
   * [ ] sendImage
-  * [ ] getLinks
-  * [ ] getCategories
+  * [x] getLinks
+  * [x] getCategories
   * [ ] getImage
 * [ ] Link the backend to the DB
-  * [ ] createLink
-  * [ ] createCategory
+  * [x] createLink
+  * [x] createCategory
   * [ ] sendImage
-  * [ ] getLinks
-  * [ ] getCategories
+  * [x] getLinks
+  * [x] getCategories
   * [ ] getImage
