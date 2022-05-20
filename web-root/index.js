@@ -8,26 +8,35 @@
 /* Core */
 // ---- //
 
-/** Toggles a tab
+/** Toggles to a new tab
  * @param {string} tab
  */
 function viewTab(tab) {
-    // Get all tabs
-    let parent = document.getElementById("tabs-parent");
-    let children = new Array();
-    for (let child in parent.childNodes) {
-        if (parent.childNodes[child].nodeType == 1) { children.push(parent.childNodes[child]) }
+    let tabsParent = document.getElementById("tabs-parent")
+    let navbarTabButtonsParent = document.getElementById("tabs-navbar-parent")
+    let tabs = []
+    let navbarTabButtons = []
+    
+    // Get all tabs and their element in the navbar
+    for (let child in tabsParent.childNodes) {
+        if (tabsParent.childNodes[child].nodeType == 1) { tabs.push(tabsParent.childNodes[child]) }
+    }
+    for (let child in navbarTabButtonsParent.childNodes) {
+        if (navbarTabButtonsParent.childNodes[child].nodeType == 1) { navbarTabButtons.push(navbarTabButtonsParent.childNodes[child]) }
     }
 
-    // Make all tabs hidden
-    for (let tab in children) {
-        children[tab].style.display = "none"
+    console.log(navbarTabButtons)
+    // Reset everything
+    for (let tab in tabs) {
+        tabs[tab].style.display = "none"
+    }
+    for (let button in navbarTabButtons) {
+        navbarTabButtons[button].classList.remove("is-active")
     }
 
     // Make the desired tab visible
     document.getElementById(tab).style.display = "block"
-
-    // Automatic actions depending on the tab
+    document.getElementById(tab + "-navbar-button").classList.add("is-active")
 }
 
 // ----- //
