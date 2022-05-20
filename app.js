@@ -9,6 +9,8 @@ const bodyParser = require("body-parser")
 const path = require("path")
 const databaseConnector = require("./dbo.js")
 const { DateTimeOffset } = require("mssql")
+const multer  = require('multer')
+const upload = multer({ dest: './web-root/images/' })
 
 // --------------------- //
 /* Basic webserver setup */
@@ -24,12 +26,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // --------- //
 app.get("/", (req, res) => { res.sendFile(__dirname + "\\web_root\\index.html") }) // Set the default homepage
 
-app.post("/OPS/createLink", (req, res) => {
+app.post("/OPS/createLink", upload.single('uploaded_file'), (req, res) => {
     var link = req.query.link
     var websiteName = req.query.websiteName
     var pageTitle = req.query.pageTitle
     var category = req.query.category
-    var imageFilename = req.query.imageFilename
+    var imageFilename = req.file.imageFilename
 
     dbo.createLink(link, websiteName, pageTitle, category, imageFilename);
     res.sendStatus(200)
