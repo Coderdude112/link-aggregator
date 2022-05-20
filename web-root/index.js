@@ -25,7 +25,6 @@ function viewTab(tab) {
         if (navbarTabButtonsParent.childNodes[child].nodeType == 1) { navbarTabButtons.push(navbarTabButtonsParent.childNodes[child]) }
     }
 
-    console.log(navbarTabButtons)
     // Reset everything
     for (let tab in tabs) {
         tabs[tab].style.display = "none"
