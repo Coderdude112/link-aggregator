@@ -17,95 +17,154 @@
         </div>
         <div class="tabs is-centered is-boxed">
             <ul>
-                <li class="is-active"><a>
-                    <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-add-box"></span></span>
-                    <span>Create Link</span>
-                </a></li>
-                <li><a>
-                    <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-create-new-folder"></span></span>
-                    <span>Create Category</span>
-                </a></li>
-                <li><a>
-                    <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-insert-link"></span></span>
-                    <span>Links</span>
-                </a></li>
+                <li class="is-active">
+                    <a onclick="viewTab('create-link')">
+                        <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-add-box"></span></span>
+                        <span>Create Link</span>
+                    </a>
+                </li>
+                <li>
+                    <a onclick="viewTab('create-category')">
+                        <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-create-new-folder"></span></span>
+                        <span>Create Category</span>
+                    </a>
+                </li>
+                <li>
+                    <a onclick="viewTab('home')">
+                        <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-home"></span></span>
+                        <span>Home</span>
+                    </a>
+                </li>
             </ul>
         </div>
     </section>
     
     <br>
 
-    <div class="tile is-ancestor" style="padding-left: 12px; padding-right: 12px;">
-        <div class="tile is-3 is-vertical is-parent"> <!-- Nav -->
-            <div class="tile is-child box">
-                <aside class="menu">
-                    <ul class="menu-list">
-                        <li><a onclick="viewTab('add-category')">Add Category</a></li>
-                        <li><a onclick="viewTab('add-link')">Add Link</a></li>
-                    </ul>
-                </aside>
+    <div class="box" id="tabs-parent" style="width: 80%; margin-left: 10%;">
+        <div id="create-category" style="display: none;">
+            <h1 class="title">Add Category
+                <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
+                <button class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
+            </h1>
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" id="add-category-link-input">
+                        <span class="icon is-small is-left">
+                            <span class="iconify" data-icon="ic:baseline-drive-file-rename-outline" style="color: black;"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Color</label>
+                <div class="control">
+                    <div class="control has-icons-left">
+                        <input type="color" id="add-category-color-input" name="head" value="#e66465">
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Icon</label>
+                <div class="control">
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" id="add-category-icon-input">
+                        <p>Enter in the name of the icon from the <a href="https://icon-sets.iconify.design/" target="_blank">Iconify icons DB</a> in the text box below. Ex: <code>ic:baseline-airplanemode-active</code></p>
+                        <span class="icon is-small is-left">
+                            <span class="iconify" data-icon="ic:baseline-category" style="color: black;"></span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="create-link" style="display: none;">
+            <h1 class="title">Add Link
+                <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
+                <button class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
+            </h1>
+            <form>
+                <div class="field">
+                    <label class="label">Link</label>
+                    <div class="control">
+                        <div class="control has-icons-left">
+                            <input class="input" type="text" id="add-link-link-input">
+                            <span class="icon is-small is-left">
+                                <span class="iconify" data-icon="ic:baseline-add-link" style="color: black;"></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Website Name</label>
+                    <div class="control">
+                        <p class="control has-icons-left">
+                            <input class="input" type="text" id="add-link-website-name-input">
+                            <span class="icon is-small is-left">
+                                <span class="iconify" data-icon="ic:baseline-web-asset" style="color: black;"></span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Page Title</label>
+                    <div class="control">
+                        <p class="control has-icons-left">
+                            <input class="input" type="text" id="add-link-page-title-input">
+                            <span class="icon is-small is-left">
+                                <span class="iconify" data-icon="ic:baseline-drive-file-rename-outline" style="color: black;"></span>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Category</label>
+                    <div class="control has-icons-left">
+                        <div class="select is-fullwidth">
+                            <select id="add-link-category-select"></select>
+                        </div>
+                        <span class="icon is-small is-left">
+                            <span class="iconify" data-icon="ic:baseline-category" style="color: black;"></span>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Image</label>
+                    <div class="control">
+                        <div class="file has-name is-fullwidth">
+                            <label class="file-label">
+                                <input class="file-input" type="file" id="add-link-image-upload-button">
+                                <span class="file-cta">
+                                    <span class="file-icon"><span class="iconify" data-icon="ic:baseline-file-upload"></span></span>
+                                    <span class="file-label" id="add-link-image-upload-status">Upload an image…</span>
+                                </span>
+                                <span class="file-name" id="add-link-image-filename">Nothing uploaded yet!</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="home" style="display: none;">
+            <h1 class="title">Home</h1>
+            <div class="tile-is-ancestor">
+                <div class="tile is-parent">
+                    <article class="tile is-child box is-info is-3" onclick="showModal('')"> <!-- TEMPLATE for a link tile -->
+                        <h1 class="title">${Website name}</h1>
+                        <p class="subtitle">${Title}</p>
+                        <figure class="image is-3by3">
+                            <a href="https://example.com">
+                                <img src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU">
+                            </a>
+                        </figure>
+                    </article>
+                </div>
             </div>
         </div>
-        <div class="tile is-parent"> <!-- Content -->
-            <div class="tile is-child box" id="tabs-parent" style="background-color: #e66465;">
-                <div id="template" style="display: none;">
-                    <h1 class="title"></h1>
-                </div>
 
-                <div id="add-category" style="display: none;">
-                    <h1 class="title">Add Category
-                        <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
-                        <button class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
-                    </h1>
-                    <div class="field">
-                        <label class="label">Name</label>
-                        <div class="control">
-                            <div class="control has-icons-left">
-                                <input class="input" type="text" id="add-category-link-input">
-                                <span class="icon is-small is-left">
-                                    <span class="iconify" data-icon="ic:baseline-drive-file-rename-outline" style="color: black;"></span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Color</label>
-                        <div class="control">
-                            <div class="control has-icons-left">
-                                <input type="color" id="add-category-color-input" name="head" value="#e66465">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label class="label">Icon</label>
-                        <div class="control">
-                            <div class="control has-icons-left">
-                                <input class="input" type="text" id="add-category-icon-input">
-                                <p>Enter in the name of the icon from the <a href="https://icon-sets.iconify.design/" target="_blank">Iconify icons DB</a> in the text box below. Ex: <code>ic:baseline-airplanemode-active</code></p>
-                                <span class="icon is-small is-left">
-                                    <span class="iconify" data-icon="ic:baseline-category" style="color: black;"></span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="add-link" >
-                    <h1 class="title" style="color: white;">Links</h1>
-                    <div class="tile is-ancestor">
-                        <div class="tile is-parent">
-                            <article class="tile is-child notification is-info is-3" style="color: black; background-color:white;" onclick="showModal()">
-                                <p class="title">Name of Website</p>
-                                <p class="subtitle">Title of Page</p>
-                                <figure class="image is-3by3">
-                                    <a href="example.com" target="blank">
-                                        <img src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU" alt="Tile Picture">
-                                    </a>
-                                </figure>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="template" style="display: none;">
+            <h1 class="title"></h1>
         </div>
     </div>
 
