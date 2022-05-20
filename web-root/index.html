@@ -44,8 +44,8 @@
     <div class="box" id="tabs-parent" style="width: 80%; margin-left: 10%;">
         <div id="create-category" style="display: none;">
             <h1 class="title">Add Category
-                <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
-                <button class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
+                <button class="button is-success" onclick="createCategory()"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
+                <button class="button is-danger" onclick="clearCategory()"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
             </h1>
             <div class="field">
                 <label class="label">Name</label>
@@ -81,8 +81,8 @@
         </div>
         <div id="create-link" style="display: none;">
             <h1 class="title">Add Link
-                <button class="button is-success"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
-                <button class="button is-danger"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
+                <button class="button is-success" onclick="createLink()"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
+                <button class="button is-danger" onclick="clearLink()"><span class="iconify" data-icon="ic:baseline-delete-sweep"></span></button>
             </h1>
             <form>
                 <div class="field">
