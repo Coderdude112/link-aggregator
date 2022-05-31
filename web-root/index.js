@@ -81,8 +81,16 @@ function createCategory() {
     color = string.substring(1, 7) // Strip the begining # from the color code
     const icon = document.getElementById("add-category-icon-input").value // The icon of the category, provided by iconify
 
-    interneReq("POST", "http://localhost:3000/OPS/createCategory?name=" + name + "&color=" + color + "&icon=" + icon)
-    fillCategoryDropdowns()
+    interneReq("POST", "http://localhost:3000/OPS/createCategory?name=" + name + "&color=" + color + "&icon=" + icon, (res) => {
+        if (res.target.readyState === 4) {
+            if (res.target.status === 200) {
+                fillCategoryDropdowns()
+                viewTab("home")
+            } else {
+                console.error("There was a problem!")
+            }
+        }
+    })
 }
 
 /** Creates a new link using the data the user entered on the "create-link" tab */
@@ -93,7 +101,16 @@ function createLink() {
     const category = document.getElementById("add-link-category-select").value
     const imageFilename = document.getElementById("add-link-image-upload-button").value // An image that will accompany the link on the homepage // @TODO: Use multr
 
-    interneReq("POST", "http://localhost:3000/OPS/createLink?link=" + link + "&websiteName=" + websiteName + "&pageTitle=" + pageTitle + "&category=" + category + "&imageFilename=" + imageFilename)
+    interneReq("POST", "http://localhost:3000/OPS/createLink?link=" + link + "&websiteName=" + websiteName + "&pageTitle=" + pageTitle + "&category=" + category + "&imageFilename=" + imageFilename, (res) => {
+        if (res.target.readyState === 4) {
+            if (res.target.status === 200) {
+                clearLink()
+                viewTab("home")
+            } else {
+                console.error("There was a problem!")
+            }
+        }
+    })
 }
 
 // -------- //
