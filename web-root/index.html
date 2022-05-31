@@ -17,7 +17,19 @@
         </div>
         <div class="tabs is-centered is-boxed">
             <ul id="tabs-navbar-parent">
-                <li class="is-active" id="create-link-navbar-button">
+                <li id="info-roadmap-navbar-button" class="is-active">
+                    <a onclick="viewTab('info-roadmap')">
+                        <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-info"></span></span>
+                        <span>Info / Roadmap</span>
+                    </a>
+                </li>
+                <li id="home-navbar-button">
+                    <a onclick="viewTab('home')">
+                        <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-home"></span></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li id="create-link-navbar-button">
                     <a onclick="viewTab('create-link')">
                         <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-add-box"></span></span>
                         <span>Create Link</span>
@@ -27,12 +39,6 @@
                     <a onclick="viewTab('create-category')">
                         <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-create-new-folder"></span></span>
                         <span>Create Category</span>
-                    </a>
-                </li>
-                <li id="home-navbar-button">
-                    <a onclick="viewTab('home')">
-                        <span class="icon is-small"><span class="iconify" data-icon="ic:baseline-home"></span></span>
-                        <span>Home</span>
                     </a>
                 </li>
             </ul>
