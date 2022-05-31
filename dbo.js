@@ -10,7 +10,7 @@ async function queryDatabase(query) {
     await mssql.connect("Server=localhost,1433; Database=linkaggregator; User Id=link-aggregator-user; Password=password; Encrypt=false;")
     return await mssql.query(query)
   } catch (error) {
-    console.warn(error)
+    throw error
   }
 }
 
@@ -22,7 +22,12 @@ async function queryDatabase(query) {
  * @returns {JSON}
  */
 async function createCategory(name, color, icon) {
-  return queryDatabase("INSERT INTO categories VALUES('" + name + "', '" + color + "', '" + icon + "')")
+  try {
+    const commandResult = await queryDatabase("INSERT INTO categories VALUES('" + name + "', '" + color + "', '" + icon + "')")
+    return commandResult
+  } catch (error) {
+    throw error
+  }
 }
 
 /** Creates a new link
@@ -36,7 +41,17 @@ async function createCategory(name, color, icon) {
  * @returns {JSON}
  */
 async function createLink(link, websiteName, pageTitle, filename, category) {
-  return queryDatabase("INSERT INTO links VALUES('" + link + "', '" + title + "', '" + filename + "', '" + category + "')")  
+  // Remove "http://" or "https://" from the beginning of a link
+  if (link.indexOf("http://") !== -1) { link = link.substring(8) }
+  if (link.indexOf("https://") !== -1) { link = link.substring(9) }
+  category = parseInt(category)
+
+  try {
+    const commandResult = await queryDatabase("INSERT INTO links VALUES('" + link + "', '" + websiteName + "', '" + pageTitle + "', '" + filename + "', '" + category + "')")
+    return commandResult
+  } catch (error) {
+    throw error
+  }
 }
 
 /** Gets the "categories" table from the DB
@@ -44,7 +59,12 @@ async function createLink(link, websiteName, pageTitle, filename, category) {
  * @returns {JSON}
  */
 async function getCategories() {
-  return queryDatabase("SELECT * FROM categories")
+  try {
+    const commandResult = await queryDatabase("SELECT * FROM categories")
+    return commandResult
+  } catch (error) {
+    throw error
+  }
 }
 
 /** Gets the "links" table from the DB
@@ -52,7 +72,12 @@ async function getCategories() {
  * @returns {JSON}
  */
 async function getLinks() {
-  return queryDatabase("SELECT * FROM links")
+ try {
+   const commandResult = await queryDatabase("SELECT * FROM links")
+   return commandResult
+ } catch (error) {
+   throw error
+ }
 }
 
 /** Handles all exports */
