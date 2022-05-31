@@ -13,3 +13,11 @@ Simply, this project is a ripoff [Pocket](https://getpocket.com) clone. Basicall
 * [ ] REST API
 * [ ] Support for specalized links
 * [ ] Duplicate link checking
+
+## Usage
+
+To use this program, download and unzip the code and then run the following command to start link-aggregator
+
+```
+node app
+```
