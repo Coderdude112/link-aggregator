@@ -30,32 +30,47 @@ app.post("/OPS/createLink", async (req, res) => {
     const imageFilename = null // req.query.imageFilename
     const category = req.query.category
 
-    dbo.createLink(link, websiteName, pageTitle, category, imageFilename);
-    res.sendStatus(200)
+    try {
+        await dbo.createLink(link, websiteName, pageTitle, imageFilename, category)
+        res.sendStatus(200)
+    } catch (error) {
+        console.warn(error)
+        res.status(500).send(error)
+    }
 })
+app.post("/OPS/createCategory", async (req, res) => { 
+    const name = req.query.name
+    const color = req.query.color
+    const icon = req.query.icon
 
-app.post("/OPS/createCategory", (req, res) => { 
-    var name = req.query.name
-    var color = req.query.color
-    var icon = req.query.icon
-
-    dbo.createCategory(name, color, icon);
-    res.sendStatus(200)
+    try {
+        await dbo.createCategory(name, color, icon)
+        res.sendStatus(200)
+    } catch (error) {
+        console.warn(error)
+        res.status(500).send(error)        
+    }
 })
 app.post("/OPS/sendImage", (req, res) => { res.sendStatus(418) })
 
 app.get("/OPS/getLinks", async (req, res) => {
-    var getLink = await dbo.getLinks();
-    res.status(200).send(getLink);
+    try {
+        const commandResult = await dbo.getLinks()
+        res.status(200).send(commandResult)
+    } catch (error) {
+        console.warn(error)
+        res.status(500).send(error)
+    }
 })
 app.get("/OPS/getCategories", async (req, res) => { 
-    var getCategory = await dbo.getCategories();
-    res.status(200).send(getCategory);
+    try {
+        const commandResult = await dbo.getCategories()
+        res.status(200).send(commandResult)
+    } catch (error) {
+        console.warn(error)
+        res.status(500).send(error)
+    }
 })
-
-app.get("/OPS/getImage", async (req, res) => { res.sendStatus(418)
-    //var name = (await dao.getAllMemes()).recordset[0].memes
-    //res.status(200).sendFile(__dirname + '\\web-root\\images\\' + name)
-})
+app.get("/OPS/getImage", async (req, res) => { res.sendStatus(418) })
 
 app.listen(port, () => { console.log("Server listening at http://localhost:" + port) }) // Start the server
