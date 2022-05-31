@@ -7,10 +7,7 @@ const port = 3000
 const cors = require("cors")
 const bodyParser = require("body-parser")
 const path = require("path")
-const databaseConnector = require("./dbo.js")
-const { DateTimeOffset } = require("mssql")
-const multer  = require('multer')
-const upload = multer({ dest: './web-root/images/' })
+const dbo = require("./dbo.js")
 
 // --------------------- //
 /* Basic webserver setup */
@@ -26,12 +23,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // --------- //
 app.get("/", (req, res) => { res.sendFile(__dirname + "\\web_root\\index.html") }) // Set the default homepage
 
-app.post("/OPS/createLink", upload.single('uploaded_file'), (req, res) => {
-    var link = req.query.link
-    var websiteName = req.query.websiteName
-    var pageTitle = req.query.pageTitle
-    var category = req.query.category
-    var imageFilename = req.file.imageFilename
+app.post("/OPS/createLink", async (req, res) => {
+    const link = req.query.link
+    const websiteName = req.query.websiteName
+    const pageTitle = req.query.pageTitle
+    const imageFilename = null // req.query.imageFilename
+    const category = req.query.category
 
     dbo.createLink(link, websiteName, pageTitle, category, imageFilename);
     res.sendStatus(200)
@@ -45,14 +42,12 @@ app.post("/OPS/createCategory", (req, res) => {
     dbo.createCategory(name, color, icon);
     res.sendStatus(200)
 })
-
 app.post("/OPS/sendImage", (req, res) => { res.sendStatus(418) })
 
 app.get("/OPS/getLinks", async (req, res) => {
     var getLink = await dbo.getLinks();
     res.status(200).send(getLink);
 })
-
 app.get("/OPS/getCategories", async (req, res) => { 
     var getCategory = await dbo.getCategories();
     res.status(200).send(getCategory);
