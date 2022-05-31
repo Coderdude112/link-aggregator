@@ -157,3 +157,38 @@ function fillCategoryDropdowns() {
         }
     })
 }
+
+/** Fills the home page */
+function fillHome() {
+    interneReq("GET", "http://localhost:3000/OPS/getLinks", (res) => {
+        if (res.target.readyState === 4 && res.target.status === 200) {
+            const resJSON = JSON.parse(res.target.response)
+            const bulmaColors = ["primary", "link", "info", "success", "warning", "danger"]
+            let homeHTML = ["", "", ""]
+            let nextColumn = 0
+
+            for (const i in resJSON.recordset) {
+                const linkJSON = resJSON.recordset[i]
+                homeHTML[nextColumn] += `
+                    <article class="tile is-child notification is-${bulmaColors[Math.floor(Math.random() * bulmaColors.length)]}" onclick="window.open('https://${linkJSON.link}')">
+                        <h1 class="title">${linkJSON.pageTitle}</h1>
+                        <p class="subtitle">${linkJSON.websiteName}</p>
+                        <hr>
+                        <div style="font-size: 16px; font-weight: lighter;">
+                            <p>ALL LINK INFO</p>
+                            <a href="https://${linkJSON.link}" target="_blank">link: ${linkJSON.link}</a>
+                            <p>websiteName: ${linkJSON.websiteName}</p>
+                            <p>pageCategory: ${linkJSON.pageTitle}</p>
+                            <p>category: ${linkJSON.category}</p>
+                        </div>
+                    </article>
+                    `
+                nextColumn = (nextColumn === 2 ? 0 : nextColumn + 1)
+            }
+
+            document.getElementById("home-column-0").innerHTML = homeHTML[0]
+            document.getElementById("home-column-1").innerHTML = homeHTML[1]
+            document.getElementById("home-column-2").innerHTML = homeHTML[2]
+        }
+    })
+}
