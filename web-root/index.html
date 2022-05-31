@@ -42,6 +42,49 @@
     <br>
 
     <div class="box" id="tabs-parent" style="width: 80%; margin-left: 10%;">
+        <div id="info-roadmap">
+            <div class="content">
+                <h1 class="title">Info</h1>
+                <p>This project is just a simple application that utilizes a Node.js server to serve an HTML website and then a Microsoft SQL server to save user data. Key features include:</p>
+                <ul>
+                    <li>Custom link additions</li>
+                    <li>Custom categories</li>
+                    <li>Custom category icons</li>
+                    <li>Error catching</li>
+                    <li>Working web server and DB script</li>
+                    <li>A MSSQL DB with 2 tables</li>
+                    <li>A Node server with multiple routes which read & write to the DB</li>
+                    <li>The website includes data from the DB</li>
+                    <li>Clean look</li>
+                </ul>
+                <hr>
+                <h1 class="title">Roadmap</h1>
+                <p>If you have ideas for future additions, checkout our GitHub Project and submit a feature request! Some amazing future features include:</p>
+                <ul>
+                    <li>Image support</li>
+                    <li>Link scraping</li>
+                    <li>Bulk addition of links</li>
+                    <li>Filtering based on category</li>
+                    <li>REST API</li>
+                    <li>Support for social media links that do more</li>
+                    <li>Duplicate link checking</li>
+                </ul>
+            </div>
+        </div>
+        <div id="home" style="display: none;">
+            <h1 class="title">Home
+                <button class="button is-info" onclick="fillHome()"><span class="iconify" data-icon="ic:baseline-refresh"></span></button>
+            </h1>
+            <div class="title is-ancestor">
+                <div class="tile is-vertical">
+                    <div class="tile">
+                        <div class="tile is-parent is-vertical" id="home-column-0"></div>
+                        <div class="tile is-parent is-vertical" id="home-column-1"></div>
+                        <div class="tile is-parent is-vertical" id="home-column-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="create-category" style="display: none;">
             <h1 class="title">Add Category
                 <button class="button is-success" onclick="createCategory()"><span class="iconify" data-icon="ic:baseline-add-box"></span></button>
