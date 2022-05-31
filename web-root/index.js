@@ -114,8 +114,11 @@ function clearLink(){
     document.getElementById("add-link-image-upload-button").value = ""
 }
 
-// ---- //
+// ------------ //
+/* Page fillers */
+// ------------ //
 
+/** Fills all category dropdown menus with all available categories */
 function fillCategoryDropdowns() {
     interneReq("GET", "http://localhost:3000/OPS/getCategories", (res) => {
         if (res.target.readyState === 4 && res.target.status === 200) {
