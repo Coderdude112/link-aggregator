@@ -193,23 +193,18 @@
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
-        <div id="home" style="display: none;">
-            <h1 class="title">Home</h1>
-            <div class="tile-is-ancestor">
-                <div class="tile is-parent">
-                    <article class="tile is-child box is-info is-3" onclick="showModal('')"> <!-- TEMPLATE for a link tile -->
-                        <h1 class="title">${Website name}</h1>
-                        <p class="subtitle">${Title}</p>
-                        <figure class="image is-3by3">
-                            <a href="https://example.com">
-                                <img src="https://play-lh.googleusercontent.com/PCpXdqvUWfCW1mXhH1Y_98yBpgsWxuTSTofy3NGMo9yBTATDyzVkqU580bfSln50bFU">
-                            </a>
-                        </figure>
-                    </article>
+                <div class="field">
+                    <label class="label">Category</label>
+                    <div class="control has-icons-left">
+                        <div class="select is-fullwidth">
+                            <select id="add-link-category-select"></select>
+                        </div>
+                        <span class="icon is-small is-left">
+                            <span class="iconify" data-icon="ic:baseline-category" style="color: black;"></span>
+                        </span>
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
 
         <div id="template" style="display: none;">
