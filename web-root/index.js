@@ -41,6 +41,11 @@ function viewTab(tab) {
     // Make the desired tab visible
     document.getElementById(tab).style.display = "block"
     document.getElementById(tab + "-navbar-button").classList.add("is-active")
+
+    // Setup the page that is being loaded
+    if (tab === "home") {
+        fillHome()
+    }
 }
 
 // ----- //
