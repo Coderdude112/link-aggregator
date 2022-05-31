@@ -64,6 +64,7 @@ function interneReq(send_method, URL, callback = function() { }) {
  * @param {string} id
  */
 function getValueThenWipe(id) {
+    console.warn("this method will be deprecated")
     const value =  document.getElementById(id).value
     document.getElementById(id).value = ""
     return value
@@ -75,10 +76,10 @@ function getValueThenWipe(id) {
 
 /** Creates a new category using the data the user entered on the "create-category" tab */
 function createCategory() {
-    const name = getValueThenWipe("add-category-link-input")
-    var string = document.getElementById("add-category-color-input").value // The HTML color code for the category (Omit the hashtag from the front of the color code)
-    color = string.substring(1, 7)
-    const icon = getValueThenWipe("add-category-icon-input") // The icon of the category, provided by iconify
+    const name = document.getElementById("add-category-link-input").value
+    let string = document.getElementById("add-category-color-input").value // The HTML color code for the category (Omit the hashtag from the front of the color code)
+    color = string.substring(1, 7) // Strip the begining # from the color code
+    const icon = document.getElementById("add-category-icon-input").value // The icon of the category, provided by iconify
 
     interneReq("POST", "http://localhost:3000/OPS/createCategory?name=" + name + "&color=" + color + "&icon=" + icon)
     fillCategoryDropdowns()
@@ -86,11 +87,11 @@ function createCategory() {
 
 /** Creates a new link using the data the user entered on the "create-link" tab */
 function createLink() {
-    const link = getValueThenWipe("add-link-link-input") // The link we are saving (Omit "http://" and "https://")
-    const websiteName = getValueThenWipe("add-link-website-name-input") // The name of the website where the link is hosted
-    const pageTitle = getValueThenWipe("add-link-page-title-input") // The title of the page
-    const category = getValueThenWipe("add-link-category-select")
-    const imageFilename = getValueThenWipe("add-link-image-upload-button") // An image that will accompany the link on the homepage // @TODO: Use multr
+    const link = document.getElementById("add-link-link-input").value // The link we are saving (Omit "http://" and "https://")
+    const websiteName = document.getElementById("add-link-website-name-input").value // The name of the website where the link is hosted
+    const pageTitle = document.getElementById("add-link-page-title-input").value // The title of the page
+    const category = document.getElementById("add-link-category-select").value
+    const imageFilename = document.getElementById("add-link-image-upload-button").value // An image that will accompany the link on the homepage // @TODO: Use multr
 
     interneReq("POST", "http://localhost:3000/OPS/createLink?link=" + link + "&websiteName=" + websiteName + "&pageTitle=" + pageTitle + "&category=" + category + "&imageFilename=" + imageFilename)
 }
@@ -99,13 +100,14 @@ function createLink() {
 /* Clearers */
 // -------- //
 
-/** Clears all the entry fields  */
+/** Clears all the entry fields on the "create-category" tab */
 function clearCategory(){
     document.getElementById("add-category-link-input").value = ""
     document.getElementById("add-category-color-input").value = ""
     document.getElementById("add-category-icon-input").value = ""
 }
 
+/** Clears all the entry fields on the "create-link" tab */
 function clearLink(){
     document.getElementById("add-link-link-input").value = ""
     document.getElementById("add-link-website-name-input").value = ""
